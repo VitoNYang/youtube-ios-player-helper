@@ -596,6 +596,9 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
       [self.delegate playerView:self didPlayTime:time];
     }
   } else if ([action isEqualToString:kYTPlayerCallbackOnYouTubeIframeAPIFailedToLoad]) {
+    if ([self.delegate respondsToSelector:@selector(playerView:didFailLoadWithError:)]) {
+      [self.delegate playerView:self didFailLoadWithError:NULL];
+    }
     if (self.initialLoadingView) {
       [self.initialLoadingView removeFromSuperview];
     }
