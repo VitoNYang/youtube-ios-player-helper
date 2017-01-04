@@ -407,6 +407,9 @@ NSString static *const kYTPlayerSyndicationRegexPattern = @"^https://tpc.googles
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+  if ([self.delegate respondsToSelector:@selector(playerView:didFailLoadWithError:)]) {
+    [self.delegate playerView:self didFailLoadWithError:error];
+  }
   if (self.initialLoadingView) {
     [self.initialLoadingView removeFromSuperview];
   }

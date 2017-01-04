@@ -129,6 +129,8 @@ typedef NS_ENUM(NSInteger, YTPlayerError) {
  */
 - (nullable UIView *)playerViewPreferredInitialLoadingView:(nonnull YTPlayerView *)playerView;
 
+- (void)playerView:(nonnull YTPlayerView *)playerView didFailLoadWithError:(nonnull NSError *)error;
+
 @end
 
 /**
